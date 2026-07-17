@@ -5,9 +5,9 @@
 
 ## **⚙️ Datos necesarios y obligatorios a completar.**
 
-* **APELLIDO, NOMBRE**:  
-* **COMISIÓN**:  
-* **DNI**:
+* **APELLIDO, NOMBRE**: **Pablo Elias Andino Guash** 
+* **COMISIÓN**: **4** 
+* **DNI**: **46011207**
 
 ## **📝 Consideraciones Iniciales y Criterio de Evaluación.**
 
