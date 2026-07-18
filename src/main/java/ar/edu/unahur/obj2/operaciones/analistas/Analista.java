@@ -8,20 +8,28 @@ import ar.edu.unahur.obj2.operaciones.analistas.criterios.AnalistaNiv1;
 import ar.edu.unahur.obj2.operaciones.analistas.criterios.ICriterioTraje;
 
 public class Analista {
-    private String Legajo;
-    private ICriterioTraje criterioTraje = new AnalistaNiv1();
+    private String legajo;
+    private ICriterioTraje criterioTriaje = new AnalistaNiv1();
     private List<IAlerta> historialAlertas = new ArrayList<>();
 
-    public String getLegajo() {
-        return Legajo;
+    public Analista(String legajo) {
+        this.legajo = legajo;
     }
 
-    public ICriterioTraje getCriterioTraje() {
-        return criterioTraje;
+    public String getLegajo() {
+        return legajo;
+    }
+
+    public ICriterioTraje getCriterioTriaje() {
+        return criterioTriaje;
     }
 
     public List<IAlerta> getHistorialAlertas() {
         return historialAlertas;
+    }
+
+    public void cambiarCriterio(ICriterioTraje nuevoCriterio) {
+        this.criterioTriaje = nuevoCriterio;
     }
 
     public void agregarAlerta(IAlerta unaAlerta) {
@@ -29,10 +37,10 @@ public class Analista {
     }
 
     public Boolean sePuedeProcesar(IAlerta unaAlerta) {
-        return criterioTraje.puedeProcesar(unaAlerta);
+        return criterioTriaje.puedeProcesar(unaAlerta);
     }
 
     public IAlerta enriquecerAlerta(IAlerta unaAlerta) {
-        return criterioTraje.enriquecer(unaAlerta);
+        return criterioTriaje.enriquecer(unaAlerta);
     }
 }

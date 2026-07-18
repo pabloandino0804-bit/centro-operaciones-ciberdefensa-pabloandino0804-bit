@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import ar.edu.unahur.obj2.operaciones.alertas.IAlerta;
+import ar.edu.unahur.obj2.operaciones.alertas.threatIntels.GeolocalizacionIP;
+import ar.edu.unahur.obj2.operaciones.alertas.threatIntels.HistorialForense;
 
 public class EspEnInfraestructura implements ICriterioTraje {
     private List<String> listaIPs;
@@ -24,6 +26,6 @@ public class EspEnInfraestructura implements ICriterioTraje {
 
     @Override
     public IAlerta enriquecer(IAlerta unaAlerta) {
-        return unaAlerta;
+        return new HistorialForense(new GeolocalizacionIP(unaAlerta));
     }
 }

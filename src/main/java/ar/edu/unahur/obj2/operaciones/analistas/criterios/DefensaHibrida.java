@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import ar.edu.unahur.obj2.operaciones.alertas.IAlerta;
+import ar.edu.unahur.obj2.operaciones.alertas.threatIntels.GeolocalizacionIP;
+import ar.edu.unahur.obj2.operaciones.alertas.threatIntels.HistorialForense;
 
 public class DefensaHibrida implements ICriterioTraje {
     private List<String> listaIPs;
@@ -24,8 +26,7 @@ public class DefensaHibrida implements ICriterioTraje {
 
     @Override
     public IAlerta enriquecer(IAlerta unaAlerta) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'enriquecer'");
+        return new HistorialForense(new GeolocalizacionIP(unaAlerta));
     }
 
 }

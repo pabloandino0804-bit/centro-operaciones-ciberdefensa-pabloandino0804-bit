@@ -6,15 +6,16 @@ import java.util.List;
 import ar.edu.unahur.obj2.operaciones.alertas.Alerta;
 import ar.edu.unahur.obj2.operaciones.alertas.IAlerta;
 import ar.edu.unahur.obj2.operaciones.analistas.Analista;
+import ar.edu.unahur.obj2.operaciones.excepciones.AnalistaSinCriterioException;
 
 public class MotorSIEM {
     private List<IAlerta> colaAlertas = new ArrayList<>();
-    private MotorSIEM instance = new MotorSIEM();
+    private static MotorSIEM instance = new MotorSIEM();
 
     public MotorSIEM() {
     }
 
-    public MotorSIEM getInstance() {
+    public static MotorSIEM getInstance() {
         return instance;
     }
 
@@ -27,8 +28,8 @@ public class MotorSIEM {
     }
 
     public void asignarTrabajo(Analista unAnalista) {
-        if (unAnalista == null) {
-
+        if (unAnalista.getCriterioTriaje() == null) {
+            throw new AnalistaSinCriterioException("El analista dado no tiene criterio establecido");
         }
 
         IAlerta alertaAEntregar = colaAlertas.stream()
